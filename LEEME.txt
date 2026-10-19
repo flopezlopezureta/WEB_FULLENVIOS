@@ -1,0 +1,24 @@
+PAGINA WEB FULLENVIOS - sitio publico con SEO (dominio: fullenvios.app)
+
+Contenido
+- fullenvios.html               Portada (se sirve en la raiz: https://fullenvios.app/)
+- software-ruteo-ecommerce.html Segunda pagina (/software-ruteo-ecommerce)
+- privacidad.html               Politica de privacidad (/privacidad.html)
+- robots.txt, sitemap.xml       Para buscadores (ya apuntan a fullenvios.app)
+- logo.png                      Logo del proyecto
+- assets/landing/web/           Imagenes optimizadas (WebP/JPG) y logo-fullenvios.png (limpio, transparente)
+- Dockerfile, nginx.conf, security.inc, .dockerignore   Para desplegar como servicio propio en Coolify
+
+Como desplegar en Coolify (servicio aparte, no toca la app)
+1. Subir esta carpeta como repositorio propio (la carpeta es la raiz del repo).
+2. Coolify > New Resource > repositorio > Build Pack: Dockerfile > Puerto 80.
+3. Domains: https://fullenvios.app y https://www.fullenvios.app
+4. Cloudflare DNS (zona fullenvios.app): registros @ y www apuntando al servidor, igual que los otros dominios del servidor.
+5. Purgar cache de Cloudflare y probar: /, /software-ruteo-ecommerce, /robots.txt, /sitemap.xml
+6. Search Console: agregar fullenvios.app (verificacion por DNS) y enviar el sitemap.
+
+Notas
+- El boton "Ingresar" apunta a https://fullenvios.selcom.cl
+- El correo de contacto sigue siendo info@fullenvios.cl (cambiar si hay correo en el dominio nuevo).
+- La configuracion de nginx no se probo localmente (sin Docker en este equipo): revisar el primer despliegue.
+- La copia de trabajo para pruebas esta en public/ del proyecto (fullenvios.html y software-ruteo-ecommerce.html).
